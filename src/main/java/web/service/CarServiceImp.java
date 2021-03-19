@@ -13,9 +13,9 @@ public class CarServiceImp implements CarService{
             new Car("Mazda", "Black", 230),
             new Car("Toyota", "Brown", 200),
             new Car("Nissan", "Red", 210));
-
     @Override
-    public List<Car> getCars(int num) {
+    public List<Car> getCars(Integer num) {
+        if (num == null || num > 5 || num < 0) num = 5;
         return cars.subList(0, num);
     }
 }

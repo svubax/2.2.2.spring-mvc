@@ -12,9 +12,7 @@ import java.util.List;
 public class CarsController {
     @GetMapping("/cars")
     public String getCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
-        if (count == null || count > 5 || count < 0) count = 5;
-        List<Car> cars = new CarServiceImp().getCars(count);
-        model.addAttribute("cars", cars);
+        model.addAttribute("cars", new CarServiceImp().getCars(count));
         return "cars";
     }
 }
